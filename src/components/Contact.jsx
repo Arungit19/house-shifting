@@ -49,7 +49,7 @@ export default function Contact() {
                 <label className="text-xs text-gray-400 font-medium uppercase tracking-wider block mb-2">Your Name</label>
                 <input
                   type="text"
-                  placeholder="Rajesh Kumar"
+                  placeholder="Name"
                   className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-[#2979d4]/60 transition-colors"
                 />
               </div>
