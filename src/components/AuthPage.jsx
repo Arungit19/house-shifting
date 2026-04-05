@@ -2,8 +2,11 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function AuthPage() {
+  const router = useRouter();
+
   const [input, setInput] = useState("");
   const [step, setStep] = useState("input");
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
@@ -20,30 +23,33 @@ export default function AuthPage() {
     newOtp[idx] = val;
     setOtp(newOtp);
 
-    if (val && idx < 5) {
-      const next = document.getElementById(`otp-${idx + 1}`);
-      if (next) next.focus();
+    if (val && idx < otp.length - 1) {
+      document.getElementById(`otp-${idx + 1}`)?.focus();
     }
   };
 
-  const handleGoogleLogin = () => {
-    alert("Google Login 🔐");
-  };
-
-  const handleFacebookLogin = () => {
-    alert("Facebook Login 🔐");
+  const handleKeyDown = (e, idx) => {
+    if (e.key === "Backspace" && !otp[idx] && idx > 0) {
+      document.getElementById(`otp-${idx - 1}`)?.focus();
+    }
   };
 
   return (
     <div className="relative min-h-screen flex items-center justify-center px-4">
 
-      {/* 🔥 BACKGROUND IMAGE */}
+      {/* 🔙 BACK TO HOME */}
+      <button
+        onClick={() => router.push("/")}
+        className="absolute top-4 left-4 text-white text-lg font-semibold z-20"
+      >
+        ← 
+      </button>
+
+      {/* BACKGROUND */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: "url('/bg.jpg')" }}
       />
-
-      {/* 🔥 DARK OVERLAY */}
       <div className="absolute inset-0 bg-black/60" />
 
       {/* CONTENT */}
@@ -61,7 +67,7 @@ export default function AuthPage() {
             className="absolute top-3 right-3"
           />
 
-          {/* TOP BANNER */}
+          {/* BANNER */}
           <div className="h-40 bg-gradient-to-r from-blue-700 to-blue-500 flex items-end p-4 text-white">
             <div>
               <p className="text-sm">Move Smart, Move Easy!</p>
@@ -93,7 +99,7 @@ export default function AuthPage() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Email ID or Mobile Number"
-                  className="w-full border rounded-xl px-4 py-3 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full border border-black placeholder:text-black rounded-xl px-4 py-3 mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
 
                 <button
@@ -119,14 +125,14 @@ export default function AuthPage() {
 
                 <div className="flex justify-center gap-6">
 
-                  <button onClick={handleGoogleLogin} className="flex flex-col items-center gap-1">
+                  <button className="flex flex-col items-center gap-1">
                     <div className="w-12 h-12 rounded-full border flex items-center justify-center">
                       <span className="text-xl font-bold text-red-500">G</span>
                     </div>
                     <span className="text-xs text-gray-500">Google</span>
                   </button>
 
-                  <button onClick={handleFacebookLogin} className="flex flex-col items-center gap-1">
+                  <button className="flex flex-col items-center gap-1">
                     <div className="w-12 h-12 rounded-full border flex items-center justify-center">
                       <span className="text-xl font-bold text-blue-600">f</span>
                     </div>
@@ -140,29 +146,37 @@ export default function AuthPage() {
             {/* STEP 2 OTP */}
             {step === "otp" && (
               <>
+                {/* CHANGE NUMBER */}
                 <button
                   onClick={() => setStep("input")}
                   className="text-blue-500 mb-3 text-sm"
                 >
-                  ← Back
+                  Change number
                 </button>
 
                 <h2 className="text-xl font-bold text-gray-800 mb-2">
                   Verify OTP
                 </h2>
 
+                {/* OTP INPUT */}
                 <div className="flex gap-2 justify-between mb-4">
                   {otp.map((digit, i) => (
                     <input
                       key={i}
                       id={`otp-${i}`}
                       type="text"
+                      inputMode="numeric"
+                      pattern="[0-9]*"
                       maxLength={1}
                       value={digit}
                       onChange={(e) =>
-                        handleOtpChange(e.target.value, i)
+                        handleOtpChange(
+                          e.target.value.replace(/[^0-9]/g, ""),
+                          i
+                        )
                       }
-                      className="w-10 h-12 border rounded text-center text-lg"
+                      onKeyDown={(e) => handleKeyDown(e, i)}
+                      className="w-10 h-12 border border-black rounded text-center text-lg text-black font-semibold"
                     />
                   ))}
                 </div>
@@ -175,7 +189,6 @@ export default function AuthPage() {
                 </button>
               </>
             )}
-
           </div>
         </div>
       </div>
