@@ -17,13 +17,13 @@ const ACCESS_OPTIONS = [
 ];
 
 const STATS = [
-  { value: "50K+", label: "Homes Shifted" },
-  { value: "200+", label: "Cities Covered" },
-  { value: "15+", label: "Years Experience" },
-  { value: "98%", label: "Damage-Free Moves" },
+  { value: "30K+", label: "Storages Handled" },
+  { value: "120+", label: "Cities Covered" },
+  { value: "10+", label: "Years Experience" },
+  { value: "99%", label: "Safe Storage Rate" },
 ];
 
-export default function HomeShiftingPage() {
+export default function StorageSolutionsPage() {
   const [mode, setMode] = useState("within");
   const [city, setCity] = useState("");
   const [fromCity, setFromCity] = useState("");
@@ -45,7 +45,7 @@ export default function HomeShiftingPage() {
           @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sora:wght@700;800&display=swap');
 
           .check-btn:hover { background: #1d5ed8 !important; transform: translateY(-1px); }
-          .service-card:hover, .info-card:hover {
+          .info-card:hover {
             transform: translateY(-4px);
             border-color: rgba(72, 141, 255, 0.45) !important;
             box-shadow: 0 18px 40px rgba(0,0,0,0.28);
@@ -78,22 +78,22 @@ export default function HomeShiftingPage() {
             <div className="inline-flex items-center gap-2 bg-[rgba(47,110,255,0.12)] border border-[rgba(72,141,255,0.28)] rounded-full px-4 py-[7px] mb-[22px]">
               <span className="w-2 h-2 rounded-full bg-[#4f8fff] shrink-0 inline-block" />
               <span className="text-[13px] text-[#8fb5ff] font-bold tracking-[0.2px]">
-                Home Shifting
+                Storage Solutions
               </span>
             </div>
 
             {/* Heading */}
             <h1 className="font-['Sora',sans-serif] text-[clamp(2.2rem,4.8vw,4rem)] font-extrabold leading-[1.08] text-white mb-[18px]">
-              Home Shifting &amp;
+              Safe &amp; Secure
               <br />
-              <span className="text-[#4f8fff]">Complete Relocation</span>
+              <span className="text-[#4f8fff]">Household Storage</span>
             </h1>
 
             {/* Description */}
             <p className="text-base text-[#9aa6c7] leading-[1.75] max-w-[540px] mb-[30px]">
-              Full-service home relocation from packing, loading, transportation to
-              unloading and unpacking. Safe, fast and damage-free shifting of your
-              household anywhere in India.
+              Dry, CCTV‑monitored storage spaces for furniture, appliances, clothes
+              and cartons. Short‑term and long‑term plans with professional packing,
+              pickup and delivery when you need your items back.
             </p>
 
             {/* Stats */}
@@ -103,9 +103,7 @@ export default function HomeShiftingPage() {
                   <div className="font-['Sora',sans-serif] text-[22px] font-extrabold text-white">
                     {s.value}
                   </div>
-                  <div className="text-[12px] text-[#6f7b98] mt-[3px]">
-                    {s.label}
-                  </div>
+                  <div className="text-[12px] text-[#6f7b98] mt-[3px]">{s.label}</div>
                 </div>
               ))}
             </div>
@@ -114,7 +112,7 @@ export default function HomeShiftingPage() {
           {/* Right: Booking Form */}
           <div className="form-wrap w-[410px] shrink-0 bg-[#151b2c] border border-[rgba(95,119,168,0.22)] rounded-3xl p-7 shadow-[0_20px_50px_rgba(0,0,0,0.28)]">
             <h3 className="font-['Sora',sans-serif] text-lg font-bold text-white mb-[18px]">
-              Book Home Shifting
+              Book your storage space
             </h3>
 
             {/* Mode Toggle */}
@@ -137,7 +135,7 @@ export default function HomeShiftingPage() {
             {mode === "within" ? (
               <>
                 <label className="text-[13px] font-semibold text-[#c9d4f2] block mb-2">
-                  Select City
+                  Pickup City
                 </label>
                 <select
                   value={city}
@@ -186,7 +184,7 @@ export default function HomeShiftingPage() {
                 </div>
                 <div>
                   <label className="text-[13px] font-semibold text-[#c9d4f2] block mb-2">
-                    To City
+                    Storage City
                   </label>
                   <select
                     value={toCity}
@@ -200,9 +198,9 @@ export default function HomeShiftingPage() {
               </div>
             )}
 
-            {/* Pickup & Drop Details */}
+            {/* Pickup & Delivery Details */}
             <label className="text-[13px] font-semibold text-[#c9d4f2] block mb-[10px]">
-              Select pickup and drop details
+              Select pickup and delivery details
             </label>
 
             <div className="detail-cols grid grid-cols-2 gap-3 mb-[10px]">
@@ -234,10 +232,10 @@ export default function HomeShiftingPage() {
                 </select>
               </div>
 
-              {/* Drop */}
+              {/* Delivery */}
               <div className="bg-[#0f1526] border border-[rgba(95,119,168,0.18)] rounded-2xl p-[14px]">
                 <div className="text-[12px] font-bold tracking-[0.4px] uppercase text-[#6de2a6] mb-[10px]">
-                  Drop
+                  Delivery
                 </div>
 
                 <label className="text-[12px] text-[#aeb9d6] block mb-[6px]">Floor</label>
@@ -267,11 +265,11 @@ export default function HomeShiftingPage() {
               className="check-btn w-full mt-2 py-[14px] rounded-[14px] border-none bg-[#2f6eff] text-white font-bold text-[15px] cursor-pointer transition-all duration-200 tracking-[0.2px]"
               type="button"
             >
-              Get Home Shifting Quote
+              Get Storage Quote
             </button>
 
             <p className="text-center text-[12px] text-[#7f8baa] mt-[10px]">
-              Free survey • No hidden charges
+              Free survey • Monthly &amp; yearly plans • No hidden charges
             </p>
           </div>
         </section>
@@ -282,26 +280,26 @@ export default function HomeShiftingPage() {
 
             <div className="flex-1">
               <span className="text-[12px] text-[#4f8fff] font-bold tracking-[3px] uppercase">
-                Why Choose Us
+                Why Us
               </span>
               <h2 className="font-['Sora',sans-serif] text-[clamp(1.8rem,3.2vw,2.8rem)] font-extrabold text-white mt-3 mb-4 leading-[1.2]">
-                Door-to-door service,
+                Your goods stay dry,
                 <br />
-                zero damage guaranteed.
+                monitored and insured.
               </h2>
               <p className="text-[#95a2c2] text-[15px] leading-[1.8] max-w-[560px]">
-                From careful packing and loading to safe transportation and final
-                unpacking — we handle your complete home relocation with trained
-                professionals and premium vehicles.
+                Sealed packing, pallet‑based stacking and CCTV‑enabled warehouses
+                make sure your furniture, cartons and appliances stay safe from
+                dust, moisture and damage for as long as you store them with us.
               </p>
             </div>
 
             <div className="feature-grid flex-1 grid grid-cols-2 gap-4">
               {[
-                { icon: "🚛", title: "Premium Vehicles", desc: "Well-maintained trucks with GPS tracking and suspension for safe transit." },
-                { icon: "🛡️", title: "Damage Insurance", desc: "Full coverage for your household goods during transportation." },
-                { icon: "👥", title: "Expert Team", desc: "Trained professionals for careful handling of all household items." },
-                { icon: "⚡", title: "Express Service", desc: "Fastest possible delivery without compromising on safety." },
+                { icon: "🏢", title: "Secure Warehouses", desc: "Access‑controlled, CCTV‑monitored storage spaces in major cities." },
+                { icon: "🛡️", title: "Covered Insurance", desc: "Support for transit and storage insurance on request." },
+                { icon: "📦", title: "Professional Packing", desc: "Multi‑layer packing so items stay safe even for long durations." },
+                { icon: "📅", title: "Flexible Tenure", desc: "Short‑term & long‑term storage with easy extension options." },
               ].map((f, i) => (
                 <div
                   key={i}

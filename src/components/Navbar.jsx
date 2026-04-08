@@ -15,14 +15,14 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-      scrolled ? "bg-[#0a0e1a]/95 backdrop-blur-md py-3" : "bg-transparent py-5"
-    }`}>
+   <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+  scrolled ? "bg-[#0a0e1a]/95 backdrop-blur-md py-3" : "bg-[#0a0e1a]/80 backdrop-blur-sm py-5"
+}`}>
 
       
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-3 items-center">
           {/* Logo */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 justify-start">
   <div className="w-12 h-12 relative">
     <Image
       src="/logo.png"
@@ -39,7 +39,7 @@ export default function Navbar() {
 </div>
 
           {/* Desktop Nav Links */}
-          <ul className="hidden md:flex items-center gap-8 text-sm font-medium">
+          <ul className="hidden md:flex items-center justify-center gap-8 text-sm font-medium">
             {["Home", "About Us", "Services", "Contact"].map((item) => (
               <li key={item}>
                 <a
@@ -55,7 +55,7 @@ export default function Navbar() {
 
           {/* Login / Signup */}
 
-<div className="hidden md:flex items-center gap-3">
+<div className="hidden md:flex items-center gap-3 justify-end">
   <Link
     href="/login"
     className="text-sm font-medium text-gray-300 px-4 py-2 border rounded-xl"

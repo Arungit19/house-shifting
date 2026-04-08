@@ -8,32 +8,33 @@ const CITIES = [
   "Kanpur", "Varanasi", "Noida",
 ];
 
-const FLOOR_OPTIONS = [
-  "Ground Floor", "1st Floor", "2nd Floor", "3rd Floor", "4th Floor+",
+const CLEANING_TYPES = [
+  "Full Home Deep Cleaning", "Kitchen Deep Cleaning", "Bathroom Deep Cleaning",
+  "Sofa & Upholstery Cleaning", "Mattress Cleaning", "Office Cleaning",
 ];
 
-const ACCESS_OPTIONS = [
-  "With Lift", "Without Lift", "Narrow Stairs", "Easy Truck Access",
+const PROPERTY_TYPES = [
+  "1 BHK", "2 BHK", "3 BHK", "4 BHK+", "Villa", "Office / Shop",
 ];
 
 const STATS = [
-  { value: "50K+", label: "Homes Shifted" },
-  { value: "200+", label: "Cities Covered" },
-  { value: "15+", label: "Years Experience" },
-  { value: "98%", label: "Damage-Free Moves" },
+  { value: "25K+", label: "Homes Cleaned" },
+  { value: "120+", label: "Localities Covered" },
+  { value: "4.8★", label: "Average Rating" },
+  { value: "7 Days", label: "Service Support" },
 ];
 
-export default function HomeShiftingPage() {
-  const [mode, setMode] = useState("within");
-  const [city, setCity] = useState("");
+export default function CleaningServicesPage() {
   const [fromCity, setFromCity] = useState("");
   const [toCity, setToCity] = useState("");
+  const [cleaningType, setCleaningType] = useState("");
+  const [propertyType, setPropertyType] = useState("");
+  const [preferredTime, setPreferredTime] = useState("");
+  const [frequency, setFrequency] = useState("");
+  const [mode, setMode] = useState("within");
+  const [city, setCity] = useState("");
   const [fromLocation, setFromLocation] = useState("");
   const [toLocation, setToLocation] = useState("");
-  const [pickupFloor, setPickupFloor] = useState("");
-  const [pickupAccess, setPickupAccess] = useState("");
-  const [dropFloor, setDropFloor] = useState("");
-  const [dropAccess, setDropAccess] = useState("");
 
   return (
     <>
@@ -43,6 +44,8 @@ export default function HomeShiftingPage() {
 
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sora:wght@700;800&display=swap');
+
+          
 
           .check-btn:hover { background: #1d5ed8 !important; transform: translateY(-1px); }
           .service-card:hover, .info-card:hover {
@@ -69,8 +72,9 @@ export default function HomeShiftingPage() {
         `}</style>
 
         {/* ── HERO + FORM ── */}
-        <section className="hero flex items-center gap-10 px-[5%] pt-[70px] pb-14 max-w-[1280px] mx-auto">
-
+        <section
+          className="hero flex items-center gap-10 px-[5%] pt-[70px] pb-14 max-w-[1280px] mx-auto"
+        >
           {/* Left: Hero Text */}
           <div className="hero-text flex-1 min-w-0">
 
@@ -78,22 +82,24 @@ export default function HomeShiftingPage() {
             <div className="inline-flex items-center gap-2 bg-[rgba(47,110,255,0.12)] border border-[rgba(72,141,255,0.28)] rounded-full px-4 py-[7px] mb-[22px]">
               <span className="w-2 h-2 rounded-full bg-[#4f8fff] shrink-0 inline-block" />
               <span className="text-[13px] text-[#8fb5ff] font-bold tracking-[0.2px]">
-                Home Shifting
+                Post-Move Cleaning
               </span>
             </div>
 
             {/* Heading */}
-            <h1 className="font-['Sora',sans-serif] text-[clamp(2.2rem,4.8vw,4rem)] font-extrabold leading-[1.08] text-white mb-[18px]">
-              Home Shifting &amp;
+            <h1
+              className="font-['Sora',sans-serif] text-[clamp(2.2rem,4.8vw,4rem)] font-extrabold leading-[1.08] text-white mb-[18px]"
+            >
+              Home &amp; Office
               <br />
-              <span className="text-[#4f8fff]">Complete Relocation</span>
+              <span className="text-[#4f8fff]">Cleaning Services</span>
             </h1>
 
             {/* Description */}
             <p className="text-base text-[#9aa6c7] leading-[1.75] max-w-[540px] mb-[30px]">
-              Full-service home relocation from packing, loading, transportation to
-              unloading and unpacking. Safe, fast and damage-free shifting of your
-              household anywhere in India.
+              Professional deep cleaning for homes, kitchens, bathrooms, sofas and
+              offices using safe chemicals and mechanised tools. Get a hygienic,
+              fresh and spotless space in a single visit.
             </p>
 
             {/* Stats */}
@@ -112,9 +118,11 @@ export default function HomeShiftingPage() {
           </div>
 
           {/* Right: Booking Form */}
-          <div className="form-wrap w-[410px] shrink-0 bg-[#151b2c] border border-[rgba(95,119,168,0.22)] rounded-3xl p-7 shadow-[0_20px_50px_rgba(0,0,0,0.28)]">
+          <div
+            className="form-wrap w-[410px] shrink-0 bg-[#151b2c] border border-[rgba(95,119,168,0.22)] rounded-3xl p-7 shadow-[0_20px_50px_rgba(0,0,0,0.28)]"
+          >
             <h3 className="font-['Sora',sans-serif] text-lg font-bold text-white mb-[18px]">
-              Book Home Shifting
+              Book your cleaning service
             </h3>
 
             {/* Mode Toggle */}
@@ -157,14 +165,14 @@ export default function HomeShiftingPage() {
                     placeholder="Shifting From"
                     value={fromLocation}
                     onChange={(e) => setFromLocation(e.target.value)}
-                    className="w-full px-[14px] py-[13px] rounded-[14px] border border-[rgba(95,119,168,0.22)] text-sm text-[#f3f6ff] bg-[#0f1526] mb-3 outline-none placeholder:text-[#8f98b7]"
+                    className="w-full px-[14px] py-[13px] rounded-[14px] border border-[rgba(95,119,168,0.22)] text-sm text-[#f3f6ff] bg-[#0f1526] mb-3 outline-none"
                   />
                   <input
                     type="text"
                     placeholder="Shifting To"
                     value={toLocation}
                     onChange={(e) => setToLocation(e.target.value)}
-                    className="w-full px-[14px] py-[13px] rounded-[14px] border border-[rgba(95,119,168,0.22)] text-sm text-[#f3f6ff] bg-[#0f1526] outline-none placeholder:text-[#8f98b7]"
+                    className="w-full px-[14px] py-[13px] rounded-[14px] border border-[rgba(95,119,168,0.22)] text-sm text-[#f3f6ff] bg-[#0f1526] outline-none"
                   />
                 </div>
               </>
@@ -200,64 +208,69 @@ export default function HomeShiftingPage() {
               </div>
             )}
 
-            {/* Pickup & Drop Details */}
+            {/* Cleaning Details */}
             <label className="text-[13px] font-semibold text-[#c9d4f2] block mb-[10px]">
-              Select pickup and drop details
+              Cleaning details
             </label>
 
             <div className="detail-cols grid grid-cols-2 gap-3 mb-[10px]">
 
-              {/* Pickup */}
+              {/* Service Type */}
               <div className="bg-[#0f1526] border border-[rgba(95,119,168,0.18)] rounded-2xl p-[14px]">
-                <div className="text-[12px] font-bold tracking-[0.4px] uppercase text-[#ff8b8b] mb-[10px]">
-                  Pickup
+                <div className="text-[12px] font-bold tracking-[0.4px] uppercase text-[#6de2a6] mb-[10px]">
+                  Service Type
                 </div>
 
-                <label className="text-[12px] text-[#aeb9d6] block mb-[6px]">Floor</label>
+                <label className="text-[12px] text-[#aeb9d6] block mb-[6px]">Cleaning</label>
                 <select
-                  value={pickupFloor}
-                  onChange={(e) => setPickupFloor(e.target.value)}
-                  className={`w-full px-3 py-3 rounded-xl border border-[rgba(95,119,168,0.22)] text-[13px] bg-[#151b2c] outline-none mb-[10px] ${pickupFloor ? "text-[#f3f6ff]" : "text-[#8f98b7]"}`}
+                  value={cleaningType}
+                  onChange={(e) => setCleaningType(e.target.value)}
+                  className={`w-full px-3 py-3 rounded-xl border border-[rgba(95,119,168,0.22)] text-[13px] bg-[#151b2c] outline-none mb-[10px] ${cleaningType ? "text-[#f3f6ff]" : "text-[#8f98b7]"}`}
                 >
-                  <option value="">Select floor</option>
-                  {FLOOR_OPTIONS.map((item) => <option key={item} value={item}>{item}</option>)}
+                  <option value="">Select service</option>
+                  {CLEANING_TYPES.map((item) => <option key={item} value={item}>{item}</option>)}
                 </select>
 
-                <label className="text-[12px] text-[#aeb9d6] block mb-[6px]">Access</label>
+                <label className="text-[12px] text-[#aeb9d6] block mb-[6px]">Property Type</label>
                 <select
-                  value={pickupAccess}
-                  onChange={(e) => setPickupAccess(e.target.value)}
-                  className={`w-full px-3 py-3 rounded-xl border border-[rgba(95,119,168,0.22)] text-[13px] bg-[#151b2c] outline-none ${pickupAccess ? "text-[#f3f6ff]" : "text-[#8f98b7]"}`}
+                  value={propertyType}
+                  onChange={(e) => setPropertyType(e.target.value)}
+                  className={`w-full px-3 py-3 rounded-xl border border-[rgba(95,119,168,0.22)] text-[13px] bg-[#151b2c] outline-none ${propertyType ? "text-[#f3f6ff]" : "text-[#8f98b7]"}`}
                 >
-                  <option value="">Select access</option>
-                  {ACCESS_OPTIONS.map((item) => <option key={item} value={item}>{item}</option>)}
+                  <option value="">Select property</option>
+                  {PROPERTY_TYPES.map((item) => <option key={item} value={item}>{item}</option>)}
                 </select>
               </div>
 
-              {/* Drop */}
+              {/* Schedule */}
               <div className="bg-[#0f1526] border border-[rgba(95,119,168,0.18)] rounded-2xl p-[14px]">
-                <div className="text-[12px] font-bold tracking-[0.4px] uppercase text-[#6de2a6] mb-[10px]">
-                  Drop
+                <div className="text-[12px] font-bold tracking-[0.4px] uppercase text-[#4f8fff] mb-[10px]">
+                  Schedule
                 </div>
 
-                <label className="text-[12px] text-[#aeb9d6] block mb-[6px]">Floor</label>
+                <label className="text-[12px] text-[#aeb9d6] block mb-[6px]">Preferred Time</label>
                 <select
-                  value={dropFloor}
-                  onChange={(e) => setDropFloor(e.target.value)}
-                  className={`w-full px-3 py-3 rounded-xl border border-[rgba(95,119,168,0.22)] text-[13px] bg-[#151b2c] outline-none mb-[10px] ${dropFloor ? "text-[#f3f6ff]" : "text-[#8f98b7]"}`}
+                  value={preferredTime}
+                  onChange={(e) => setPreferredTime(e.target.value)}
+                  className={`w-full px-3 py-3 rounded-xl border border-[rgba(95,119,168,0.22)] text-[13px] bg-[#151b2c] outline-none mb-[10px] ${preferredTime ? "text-[#f3f6ff]" : "text-[#8f98b7]"}`}
                 >
-                  <option value="">Select floor</option>
-                  {FLOOR_OPTIONS.map((item) => <option key={item} value={item}>{item}</option>)}
+                  <option value="">Select time slot</option>
+                  <option value="Morning (8 AM - 11 AM)">Morning (8 AM - 11 AM)</option>
+                  <option value="Afternoon (12 PM - 3 PM)">Afternoon (12 PM - 3 PM)</option>
+                  <option value="Evening (4 PM - 7 PM)">Evening (4 PM - 7 PM)</option>
                 </select>
 
-                <label className="text-[12px] text-[#aeb9d6] block mb-[6px]">Access</label>
+                <label className="text-[12px] text-[#aeb9d6] block mb-[6px]">Frequency</label>
                 <select
-                  value={dropAccess}
-                  onChange={(e) => setDropAccess(e.target.value)}
-                  className={`w-full px-3 py-3 rounded-xl border border-[rgba(95,119,168,0.22)] text-[13px] bg-[#151b2c] outline-none ${dropAccess ? "text-[#f3f6ff]" : "text-[#8f98b7]"}`}
+                  value={frequency}
+                  onChange={(e) => setFrequency(e.target.value)}
+                  className={`w-full px-3 py-3 rounded-xl border border-[rgba(95,119,168,0.22)] text-[13px] bg-[#151b2c] outline-none ${frequency ? "text-[#f3f6ff]" : "text-[#8f98b7]"}`}
                 >
-                  <option value="">Select access</option>
-                  {ACCESS_OPTIONS.map((item) => <option key={item} value={item}>{item}</option>)}
+                  <option value="">One-time or regular?</option>
+                  <option value="One Time">One Time Deep Cleaning</option>
+                  <option value="Monthly">Monthly Cleaning</option>
+                  <option value="Fortnightly">Fortnightly Cleaning</option>
+                  <option value="Weekly">Weekly Cleaning</option>
                 </select>
               </div>
             </div>
@@ -267,11 +280,11 @@ export default function HomeShiftingPage() {
               className="check-btn w-full mt-2 py-[14px] rounded-[14px] border-none bg-[#2f6eff] text-white font-bold text-[15px] cursor-pointer transition-all duration-200 tracking-[0.2px]"
               type="button"
             >
-              Get Home Shifting Quote
+              Get Cleaning Quote
             </button>
 
             <p className="text-center text-[12px] text-[#7f8baa] mt-[10px]">
-              Free survey • No hidden charges
+              Chemical-safe • Trained staff • No hidden charges
             </p>
           </div>
         </section>
@@ -282,26 +295,26 @@ export default function HomeShiftingPage() {
 
             <div className="flex-1">
               <span className="text-[12px] text-[#4f8fff] font-bold tracking-[3px] uppercase">
-                Why Choose Us
+                Why Us
               </span>
               <h2 className="font-['Sora',sans-serif] text-[clamp(1.8rem,3.2vw,2.8rem)] font-extrabold text-white mt-3 mb-4 leading-[1.2]">
-                Door-to-door service,
+                Every corner is scrubbed,
                 <br />
-                zero damage guaranteed.
+                every surface is sanitised.
               </h2>
               <p className="text-[#95a2c2] text-[15px] leading-[1.8] max-w-[560px]">
-                From careful packing and loading to safe transportation and final
-                unpacking — we handle your complete home relocation with trained
-                professionals and premium vehicles.
+                Our trained cleaners use industry-grade machines, microfiber
+                cloths and safe disinfectants to remove grease, stains, dust and
+                germs from your entire home or office, including hard-to-reach areas.
               </p>
             </div>
 
             <div className="feature-grid flex-1 grid grid-cols-2 gap-4">
               {[
-                { icon: "🚛", title: "Premium Vehicles", desc: "Well-maintained trucks with GPS tracking and suspension for safe transit." },
-                { icon: "🛡️", title: "Damage Insurance", desc: "Full coverage for your household goods during transportation." },
-                { icon: "👥", title: "Expert Team", desc: "Trained professionals for careful handling of all household items." },
-                { icon: "⚡", title: "Express Service", desc: "Fastest possible delivery without compromising on safety." },
+                { icon: "🧽", title: "Deep Cleaning", desc: "Intensive cleaning for floors, tiles, bathrooms, kitchen and balconies." },
+                { icon: "🧴", title: "Safe Chemicals", desc: "Professional-grade, skin-friendly and pet-safe cleaning solutions." },
+                { icon: "🧹", title: "Mechanised Tools", desc: "Vacuum, single-disc machines and steam cleaners for better results." },
+                { icon: "⏱️", title: "On-Time Service", desc: "Pre-scheduled slots, punctual staff and quick completion." },
               ].map((f, i) => (
                 <div
                   key={i}
@@ -315,7 +328,6 @@ export default function HomeShiftingPage() {
             </div>
           </div>
         </section>
-
       </div>
     </>
   );

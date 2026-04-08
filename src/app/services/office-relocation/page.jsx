@@ -17,13 +17,13 @@ const ACCESS_OPTIONS = [
 ];
 
 const STATS = [
-  { value: "50K+", label: "Homes Shifted" },
+  { value: "5K+", label: "Offices Relocated" },
   { value: "200+", label: "Cities Covered" },
   { value: "15+", label: "Years Experience" },
-  { value: "98%", label: "Damage-Free Moves" },
+  { value: "98%", label: "Zero-Delay Moves" },
 ];
 
-export default function HomeShiftingPage() {
+export default function OfficeRelocationPage() {
   const [mode, setMode] = useState("within");
   const [city, setCity] = useState("");
   const [fromCity, setFromCity] = useState("");
@@ -78,22 +78,22 @@ export default function HomeShiftingPage() {
             <div className="inline-flex items-center gap-2 bg-[rgba(47,110,255,0.12)] border border-[rgba(72,141,255,0.28)] rounded-full px-4 py-[7px] mb-[22px]">
               <span className="w-2 h-2 rounded-full bg-[#4f8fff] shrink-0 inline-block" />
               <span className="text-[13px] text-[#8fb5ff] font-bold tracking-[0.2px]">
-                Home Shifting
+                Office Relocation
               </span>
             </div>
 
             {/* Heading */}
             <h1 className="font-['Sora',sans-serif] text-[clamp(2.2rem,4.8vw,4rem)] font-extrabold leading-[1.08] text-white mb-[18px]">
-              Home Shifting &amp;
+              Office Relocation
               <br />
-              <span className="text-[#4f8fff]">Complete Relocation</span>
+              <span className="text-[#4f8fff]">Zero Downtime Shifting</span>
             </h1>
 
             {/* Description */}
             <p className="text-base text-[#9aa6c7] leading-[1.75] max-w-[540px] mb-[30px]">
-              Full-service home relocation from packing, loading, transportation to
-              unloading and unpacking. Safe, fast and damage-free shifting of your
-              household anywhere in India.
+              End-to-end office relocation including packing of systems, files and
+              furniture, safe transportation, unloading and organized setup at the
+              new workspace with minimum business interruption.
             </p>
 
             {/* Stats */}
@@ -114,7 +114,7 @@ export default function HomeShiftingPage() {
           {/* Right: Booking Form */}
           <div className="form-wrap w-[410px] shrink-0 bg-[#151b2c] border border-[rgba(95,119,168,0.22)] rounded-3xl p-7 shadow-[0_20px_50px_rgba(0,0,0,0.28)]">
             <h3 className="font-['Sora',sans-serif] text-lg font-bold text-white mb-[18px]">
-              Book Home Shifting
+              Book Office Relocation
             </h3>
 
             {/* Mode Toggle */}
@@ -267,11 +267,11 @@ export default function HomeShiftingPage() {
               className="check-btn w-full mt-2 py-[14px] rounded-[14px] border-none bg-[#2f6eff] text-white font-bold text-[15px] cursor-pointer transition-all duration-200 tracking-[0.2px]"
               type="button"
             >
-              Get Home Shifting Quote
+              Get Office Relocation Quote
             </button>
 
             <p className="text-center text-[12px] text-[#7f8baa] mt-[10px]">
-              Free survey • No hidden charges
+              Free site survey • No hidden charges
             </p>
           </div>
         </section>
@@ -282,26 +282,27 @@ export default function HomeShiftingPage() {
 
             <div className="flex-1">
               <span className="text-[12px] text-[#4f8fff] font-bold tracking-[3px] uppercase">
-                Why Choose Us
+                Why Us
               </span>
               <h2 className="font-['Sora',sans-serif] text-[clamp(1.8rem,3.2vw,2.8rem)] font-extrabold text-white mt-3 mb-4 leading-[1.2]">
-                Door-to-door service,
+                Minimal downtime,
                 <br />
-                zero damage guaranteed.
+                maximum safety for assets.
               </h2>
               <p className="text-[#95a2c2] text-[15px] leading-[1.8] max-w-[560px]">
-                From careful packing and loading to safe transportation and final
-                unpacking — we handle your complete home relocation with trained
-                professionals and premium vehicles.
+                Our trained office relocation team packs computers, servers,
+                documents and furniture in a structured way so everything reaches
+                safely and your office starts working from the new location at the
+                earliest.
               </p>
             </div>
 
             <div className="feature-grid flex-1 grid grid-cols-2 gap-4">
               {[
-                { icon: "🚛", title: "Premium Vehicles", desc: "Well-maintained trucks with GPS tracking and suspension for safe transit." },
-                { icon: "🛡️", title: "Damage Insurance", desc: "Full coverage for your household goods during transportation." },
-                { icon: "👥", title: "Expert Team", desc: "Trained professionals for careful handling of all household items." },
-                { icon: "⚡", title: "Express Service", desc: "Fastest possible delivery without compromising on safety." },
+                { icon: "💻", title: "IT Equipment Safety", desc: "Special handling for computers, servers, printers and networking devices." },
+                { icon: "📁", title: "File & Document Care", desc: "Proper cartons and labeling for important documents and records." },
+                { icon: "👷", title: "Dedicated Move Manager", desc: "Single point of contact to coordinate entire office move." },
+                { icon: "⏱️", title: "Weekend / Night Shifts", desc: "Relocation planned in off-hours so work is not disturbed." },
               ].map((f, i) => (
                 <div
                   key={i}

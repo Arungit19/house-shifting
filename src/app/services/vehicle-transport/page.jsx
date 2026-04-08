@@ -8,32 +8,31 @@ const CITIES = [
   "Kanpur", "Varanasi", "Noida",
 ];
 
-const FLOOR_OPTIONS = [
-  "Ground Floor", "1st Floor", "2nd Floor", "3rd Floor", "4th Floor+",
+const VEHICLE_TYPES = [
+  "Hatchback / Sedan", "SUV / MUV", "Luxury Car",
+  "Bike / Scooter", "Commercial Vehicle",
 ];
 
-const ACCESS_OPTIONS = [
-  "With Lift", "Without Lift", "Narrow Stairs", "Easy Truck Access",
+const TRANSPORT_MODES = [
+  "Open Truck", "Covered Container", "Shared Carrier", "Dedicated Carrier",
 ];
 
 const STATS = [
-  { value: "50K+", label: "Homes Shifted" },
+  { value: "25K+", label: "Vehicles Moved" },
   { value: "200+", label: "Cities Covered" },
   { value: "15+", label: "Years Experience" },
-  { value: "98%", label: "Damage-Free Moves" },
+  { value: "98%", label: "On-time Delivery" },
 ];
 
-export default function HomeShiftingPage() {
+export default function VehicleTransportPage() {
   const [mode, setMode] = useState("within");
   const [city, setCity] = useState("");
   const [fromCity, setFromCity] = useState("");
   const [toCity, setToCity] = useState("");
   const [fromLocation, setFromLocation] = useState("");
   const [toLocation, setToLocation] = useState("");
-  const [pickupFloor, setPickupFloor] = useState("");
-  const [pickupAccess, setPickupAccess] = useState("");
-  const [dropFloor, setDropFloor] = useState("");
-  const [dropAccess, setDropAccess] = useState("");
+  const [vehicleType, setVehicleType] = useState("");
+  const [transportMode, setTransportMode] = useState("");
 
   return (
     <>
@@ -78,22 +77,22 @@ export default function HomeShiftingPage() {
             <div className="inline-flex items-center gap-2 bg-[rgba(47,110,255,0.12)] border border-[rgba(72,141,255,0.28)] rounded-full px-4 py-[7px] mb-[22px]">
               <span className="w-2 h-2 rounded-full bg-[#4f8fff] shrink-0 inline-block" />
               <span className="text-[13px] text-[#8fb5ff] font-bold tracking-[0.2px]">
-                Home Shifting
+                Vehicle Transport
               </span>
             </div>
 
             {/* Heading */}
             <h1 className="font-['Sora',sans-serif] text-[clamp(2.2rem,4.8vw,4rem)] font-extrabold leading-[1.08] text-white mb-[18px]">
-              Home Shifting &amp;
+              Door‑to‑Door
               <br />
-              <span className="text-[#4f8fff]">Complete Relocation</span>
+              <span className="text-[#4f8fff]">Vehicle Transport</span>
             </h1>
 
             {/* Description */}
             <p className="text-base text-[#9aa6c7] leading-[1.75] max-w-[540px] mb-[30px]">
-              Full-service home relocation from packing, loading, transportation to
-              unloading and unpacking. Safe, fast and damage-free shifting of your
-              household anywhere in India.
+              Safe car and bike relocation with custom ramps, wheel locks and
+              covered carriers. Door‑pickup and door‑delivery support so your
+              vehicle reaches the new city safely and on time.
             </p>
 
             {/* Stats */}
@@ -114,7 +113,7 @@ export default function HomeShiftingPage() {
           {/* Right: Booking Form */}
           <div className="form-wrap w-[410px] shrink-0 bg-[#151b2c] border border-[rgba(95,119,168,0.22)] rounded-3xl p-7 shadow-[0_20px_50px_rgba(0,0,0,0.28)]">
             <h3 className="font-['Sora',sans-serif] text-lg font-bold text-white mb-[18px]">
-              Book Home Shifting
+              Get vehicle transport quote
             </h3>
 
             {/* Mode Toggle */}
@@ -172,9 +171,7 @@ export default function HomeShiftingPage() {
               /* Between Cities */
               <div className="between-cols grid grid-cols-2 gap-3 mb-[18px]">
                 <div>
-                  <label className="text-[13px] font-semibold text-[#c9d4f2] block mb-2">
-                    From City
-                  </label>
+                  <label className="text-[13px] font-semibold text-[#c9d4f2] block mb-2">From City</label>
                   <select
                     value={fromCity}
                     onChange={(e) => setFromCity(e.target.value)}
@@ -185,9 +182,7 @@ export default function HomeShiftingPage() {
                   </select>
                 </div>
                 <div>
-                  <label className="text-[13px] font-semibold text-[#c9d4f2] block mb-2">
-                    To City
-                  </label>
+                  <label className="text-[13px] font-semibold text-[#c9d4f2] block mb-2">To City</label>
                   <select
                     value={toCity}
                     onChange={(e) => setToCity(e.target.value)}
@@ -197,67 +192,64 @@ export default function HomeShiftingPage() {
                     {CITIES.map((c) => <option key={c} value={c}>{c}</option>)}
                   </select>
                 </div>
+
+                {/* Shifting From / To for Between Cities */}
+                <div className="col-span-2">
+                  <label className="text-[13px] font-semibold text-[#c9d4f2] block mb-2">
+                    Pickup &amp; drop location
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Shifting From"
+                    value={fromLocation}
+                    onChange={(e) => setFromLocation(e.target.value)}
+                    className="w-full px-[14px] py-[13px] rounded-[14px] border border-[rgba(95,119,168,0.22)] text-sm text-[#f3f6ff] bg-[#0f1526] mb-3 outline-none placeholder:text-[#8f98b7]"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Shifting To"
+                    value={toLocation}
+                    onChange={(e) => setToLocation(e.target.value)}
+                    className="w-full px-[14px] py-[13px] rounded-[14px] border border-[rgba(95,119,168,0.22)] text-sm text-[#f3f6ff] bg-[#0f1526] outline-none placeholder:text-[#8f98b7]"
+                  />
+                </div>
               </div>
             )}
 
-            {/* Pickup & Drop Details */}
+            {/* Vehicle Details */}
             <label className="text-[13px] font-semibold text-[#c9d4f2] block mb-[10px]">
-              Select pickup and drop details
+              Vehicle details
             </label>
 
             <div className="detail-cols grid grid-cols-2 gap-3 mb-[10px]">
 
-              {/* Pickup */}
+              {/* Vehicle Type */}
               <div className="bg-[#0f1526] border border-[rgba(95,119,168,0.18)] rounded-2xl p-[14px]">
-                <div className="text-[12px] font-bold tracking-[0.4px] uppercase text-[#ff8b8b] mb-[10px]">
-                  Pickup
+                <div className="text-[12px] font-bold tracking-[0.4px] uppercase text-[#ffdc8b] mb-[10px]">
+                  Vehicle Type
                 </div>
-
-                <label className="text-[12px] text-[#aeb9d6] block mb-[6px]">Floor</label>
                 <select
-                  value={pickupFloor}
-                  onChange={(e) => setPickupFloor(e.target.value)}
-                  className={`w-full px-3 py-3 rounded-xl border border-[rgba(95,119,168,0.22)] text-[13px] bg-[#151b2c] outline-none mb-[10px] ${pickupFloor ? "text-[#f3f6ff]" : "text-[#8f98b7]"}`}
+                  value={vehicleType}
+                  onChange={(e) => setVehicleType(e.target.value)}
+                  className={`w-full px-3 py-3 rounded-xl border border-[rgba(95,119,168,0.22)] text-[13px] bg-[#151b2c] outline-none ${vehicleType ? "text-[#f3f6ff]" : "text-[#8f98b7]"}`}
                 >
-                  <option value="">Select floor</option>
-                  {FLOOR_OPTIONS.map((item) => <option key={item} value={item}>{item}</option>)}
-                </select>
-
-                <label className="text-[12px] text-[#aeb9d6] block mb-[6px]">Access</label>
-                <select
-                  value={pickupAccess}
-                  onChange={(e) => setPickupAccess(e.target.value)}
-                  className={`w-full px-3 py-3 rounded-xl border border-[rgba(95,119,168,0.22)] text-[13px] bg-[#151b2c] outline-none ${pickupAccess ? "text-[#f3f6ff]" : "text-[#8f98b7]"}`}
-                >
-                  <option value="">Select access</option>
-                  {ACCESS_OPTIONS.map((item) => <option key={item} value={item}>{item}</option>)}
+                  <option value="">Select vehicle</option>
+                  {VEHICLE_TYPES.map((item) => <option key={item} value={item}>{item}</option>)}
                 </select>
               </div>
 
-              {/* Drop */}
+              {/* Transport Mode */}
               <div className="bg-[#0f1526] border border-[rgba(95,119,168,0.18)] rounded-2xl p-[14px]">
                 <div className="text-[12px] font-bold tracking-[0.4px] uppercase text-[#6de2a6] mb-[10px]">
-                  Drop
+                  Transport Mode
                 </div>
-
-                <label className="text-[12px] text-[#aeb9d6] block mb-[6px]">Floor</label>
                 <select
-                  value={dropFloor}
-                  onChange={(e) => setDropFloor(e.target.value)}
-                  className={`w-full px-3 py-3 rounded-xl border border-[rgba(95,119,168,0.22)] text-[13px] bg-[#151b2c] outline-none mb-[10px] ${dropFloor ? "text-[#f3f6ff]" : "text-[#8f98b7]"}`}
+                  value={transportMode}
+                  onChange={(e) => setTransportMode(e.target.value)}
+                  className={`w-full px-3 py-3 rounded-xl border border-[rgba(95,119,168,0.22)] text-[13px] bg-[#151b2c] outline-none ${transportMode ? "text-[#f3f6ff]" : "text-[#8f98b7]"}`}
                 >
-                  <option value="">Select floor</option>
-                  {FLOOR_OPTIONS.map((item) => <option key={item} value={item}>{item}</option>)}
-                </select>
-
-                <label className="text-[12px] text-[#aeb9d6] block mb-[6px]">Access</label>
-                <select
-                  value={dropAccess}
-                  onChange={(e) => setDropAccess(e.target.value)}
-                  className={`w-full px-3 py-3 rounded-xl border border-[rgba(95,119,168,0.22)] text-[13px] bg-[#151b2c] outline-none ${dropAccess ? "text-[#f3f6ff]" : "text-[#8f98b7]"}`}
-                >
-                  <option value="">Select access</option>
-                  {ACCESS_OPTIONS.map((item) => <option key={item} value={item}>{item}</option>)}
+                  <option value="">Select mode</option>
+                  {TRANSPORT_MODES.map((item) => <option key={item} value={item}>{item}</option>)}
                 </select>
               </div>
             </div>
@@ -267,11 +259,11 @@ export default function HomeShiftingPage() {
               className="check-btn w-full mt-2 py-[14px] rounded-[14px] border-none bg-[#2f6eff] text-white font-bold text-[15px] cursor-pointer transition-all duration-200 tracking-[0.2px]"
               type="button"
             >
-              Get Home Shifting Quote
+              Get Vehicle Quote
             </button>
 
             <p className="text-center text-[12px] text-[#7f8baa] mt-[10px]">
-              Free survey • No hidden charges
+              Door pickup • Door delivery • No hidden charges
             </p>
           </div>
         </section>
@@ -282,26 +274,26 @@ export default function HomeShiftingPage() {
 
             <div className="flex-1">
               <span className="text-[12px] text-[#4f8fff] font-bold tracking-[3px] uppercase">
-                Why Choose Us
+                Why Us
               </span>
               <h2 className="font-['Sora',sans-serif] text-[clamp(1.8rem,3.2vw,2.8rem)] font-extrabold text-white mt-3 mb-4 leading-[1.2]">
-                Door-to-door service,
+                Your vehicle is tracked,
                 <br />
-                zero damage guaranteed.
+                insured and handled with care.
               </h2>
               <p className="text-[#95a2c2] text-[15px] leading-[1.8] max-w-[560px]">
-                From careful packing and loading to safe transportation and final
-                unpacking — we handle your complete home relocation with trained
-                professionals and premium vehicles.
+                From pickup to delivery, our team uses hydraulic ramps, wheel
+                locks and GPS‑enabled carriers so your car or bike stays safe and
+                you always know where it is during transit.
               </p>
             </div>
 
             <div className="feature-grid flex-1 grid grid-cols-2 gap-4">
               {[
-                { icon: "🚛", title: "Premium Vehicles", desc: "Well-maintained trucks with GPS tracking and suspension for safe transit." },
-                { icon: "🛡️", title: "Damage Insurance", desc: "Full coverage for your household goods during transportation." },
-                { icon: "👥", title: "Expert Team", desc: "Trained professionals for careful handling of all household items." },
-                { icon: "⚡", title: "Express Service", desc: "Fastest possible delivery without compromising on safety." },
+                { icon: "🚚", title: "Specialised Carriers", desc: "Dedicated and shared car carriers with ramps and wheel locks." },
+                { icon: "🛡️", title: "Transit Insurance", desc: "Insurance support for extra safety during long‑distance moves." },
+                { icon: "📍", title: "Live Tracking", desc: "Regular updates and tracking support during vehicle transit." },
+                { icon: "🧰", title: "Expert Handling", desc: "Trained crew for loading, unloading and inspection at both ends." },
               ].map((f, i) => (
                 <div
                   key={i}

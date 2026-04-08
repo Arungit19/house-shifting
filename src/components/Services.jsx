@@ -45,7 +45,7 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="py-28 px-6 bg-[#0a0e1a]">
+    <section id="services" className="py-5 px-6 bg-[#0a0e1a]">
       <div className="max-w-6xl mx-auto">
 
         {/* 🔹 Heading */}
