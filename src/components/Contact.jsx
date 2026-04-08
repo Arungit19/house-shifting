@@ -1,6 +1,6 @@
 export default function Contact() {
   return (
-    <section id="contact" className="py-28 px-6 bg-[#0a0e1a]">
+    <section id="contact" className="py-5 px-6 bg-[#0a0e1a]">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
             <span className="text-[#2979d4] text-xs font-bold tracking-[0.3em] uppercase mb-4 block">Reach Out</span>
