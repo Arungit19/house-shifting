@@ -1,5 +1,6 @@
 "use client";
 import Navbar from "../../../components/Navbar";
+import Footer from "../../../components/Footer";
 import { useState } from "react";
 
 const CITIES = [
@@ -291,9 +292,9 @@ export default function PackingUnpackingPage() {
                 Why Us
               </span>
               <h2 className="font-['Sora',sans-serif] text-[clamp(1.8rem,3.2vw,2.8rem)] font-extrabold text-white mt-3 mb-4 leading-[1.2]">
-                Every carton is safe,
+                Every Carton Is Safe,
                 <br />
-                every item is insured.
+                Every Item Is Insured.
               </h2>
               <p className="text-[#95a2c2] text-[15px] leading-[1.8] max-w-[560px]">
                 Our professional packing team carefully packs your furniture,
@@ -323,6 +324,7 @@ export default function PackingUnpackingPage() {
         </section>
 
       </div>
+      <Footer/>
     </>
   );
 }

@@ -1,5 +1,6 @@
 "use client";
 import Navbar from "../../../components/Navbar";
+import Footer from "../../../components/Footer";
 import { useState } from "react";
 
 const CITIES = [
@@ -285,9 +286,9 @@ export default function HomeShiftingPage() {
                 Why Choose Us
               </span>
               <h2 className="font-['Sora',sans-serif] text-[clamp(1.8rem,3.2vw,2.8rem)] font-extrabold text-white mt-3 mb-4 leading-[1.2]">
-                Door-to-door service,
+                Door-To-Door Service,
                 <br />
-                zero damage guaranteed.
+                Zero Damage Guaranteed.
               </h2>
               <p className="text-[#95a2c2] text-[15px] leading-[1.8] max-w-[560px]">
                 From careful packing and loading to safe transportation and final
@@ -317,6 +318,7 @@ export default function HomeShiftingPage() {
         </section>
 
       </div>
+      <Footer/>
     </>
   );
 }

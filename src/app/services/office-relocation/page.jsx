@@ -1,5 +1,6 @@
 "use client";
 import Navbar from "../../../components/Navbar";
+import Footer from "../../../components/Footer";
 import { useState } from "react";
 
 const CITIES = [
@@ -285,9 +286,9 @@ export default function OfficeRelocationPage() {
                 Why Us
               </span>
               <h2 className="font-['Sora',sans-serif] text-[clamp(1.8rem,3.2vw,2.8rem)] font-extrabold text-white mt-3 mb-4 leading-[1.2]">
-                Minimal downtime,
+                Minimal DownTime,
                 <br />
-                maximum safety for assets.
+                Maximum Safety For Assets.
               </h2>
               <p className="text-[#95a2c2] text-[15px] leading-[1.8] max-w-[560px]">
                 Our trained office relocation team packs computers, servers,
@@ -318,6 +319,7 @@ export default function OfficeRelocationPage() {
         </section>
 
       </div>
+      <Footer/>
     </>
   );
 }

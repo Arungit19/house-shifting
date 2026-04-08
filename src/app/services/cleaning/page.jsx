@@ -1,5 +1,6 @@
 "use client";
 import Navbar from "../../../components/Navbar";
+import Footer from "../../../components/Footer";
 import { useState } from "react";
 
 const CITIES = [
@@ -298,9 +299,9 @@ export default function CleaningServicesPage() {
                 Why Us
               </span>
               <h2 className="font-['Sora',sans-serif] text-[clamp(1.8rem,3.2vw,2.8rem)] font-extrabold text-white mt-3 mb-4 leading-[1.2]">
-                Every corner is scrubbed,
+                Every Corner Is Scrubbed,
                 <br />
-                every surface is sanitised.
+                Every Surface Is Sanitised.
               </h2>
               <p className="text-[#95a2c2] text-[15px] leading-[1.8] max-w-[560px]">
                 Our trained cleaners use industry-grade machines, microfiber
@@ -329,6 +330,7 @@ export default function CleaningServicesPage() {
           </div>
         </section>
       </div>
+      <Footer/>
     </>
   );
 }

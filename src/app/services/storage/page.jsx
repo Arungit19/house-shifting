@@ -1,5 +1,6 @@
 "use client";
 import Navbar from "../../../components/Navbar";
+import Footer from "../../../components/Footer";
 import { useState } from "react";
 
 const CITIES = [
@@ -283,9 +284,9 @@ export default function StorageSolutionsPage() {
                 Why Us
               </span>
               <h2 className="font-['Sora',sans-serif] text-[clamp(1.8rem,3.2vw,2.8rem)] font-extrabold text-white mt-3 mb-4 leading-[1.2]">
-                Your goods stay dry,
+                Your Goods Stay Dry,
                 <br />
-                monitored and insured.
+                Monitored And Insured.
               </h2>
               <p className="text-[#95a2c2] text-[15px] leading-[1.8] max-w-[560px]">
                 Sealed packing, pallet‑based stacking and CCTV‑enabled warehouses
@@ -315,6 +316,7 @@ export default function StorageSolutionsPage() {
         </section>
 
       </div>
+      <Footer/>
     </>
   );
 }
