@@ -5,195 +5,38 @@ const Footer = () => {
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-        .footer {
-          background-color: #1a3c6e;
-          color: #ffffff;
-          font-family: 'Poppins', sans-serif;
-        }
-
-        .footer-main {
-          max-width: 1100px;
-          margin: 0 auto;
-          padding: 48px 24px 36px;
-          display: grid;
-          grid-template-columns: 2fr 1fr 1fr;
-          gap: 40px;
-        }
-
-        /* Brand */
-        .brand-name {
-          font-size: 22px;
-          font-weight: 700;
-          color: #ffffff;
-          margin-bottom: 10px;
-          display: flex;
-          align-items: center;
-          gap: 10px;
-        }
-
-        .brand-name span {
-          color: #60a5fa;
-        }
-
-        .brand-logo-img {
-          width: 38px;
-          height: 38px;
-          object-fit: contain;
-          border-radius: 6px;
-          background: #fff;
-          padding: 4px;
-          flex-shrink: 0;
-        }
-
-        .brand-logo-icon {
-          width: 38px;
-          height: 38px;
-          background: #2563eb;
-          border-radius: 8px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-        }
-
-        .brand-desc {
-          font-size: 13.5px;
-          color: #93b8e8;
-          line-height: 1.7;
-          margin-bottom: 20px;
-        }
-
-        .contact-item {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-          font-size: 13px;
-          color: #93b8e8;
-          margin-bottom: 8px;
-          text-decoration: none;
-        }
-
-        .contact-item:hover { color: #fff; }
-
-        .contact-item svg {
-          color: #60a5fa;
-          flex-shrink: 0;
-        }
-
-        /* Columns */
-        .col-heading {
-          font-size: 13px;
-          font-weight: 600;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: #60a5fa;
-          margin-bottom: 16px;
-        }
-
-        .footer-links {
-          list-style: none;
-          padding: 0;
-          margin: 0;
-        }
-
-        .footer-links li {
-          margin-bottom: 10px;
-        }
-
-        .footer-links a {
-          font-size: 13.5px;
-          color: #93b8e8;
-          text-decoration: none;
-          transition: color 0.2s;
-        }
-
-        .footer-links a:hover {
-          color: #ffffff;
-        }
-
-        /* Divider */
-        .footer-divider {
-          border: none;
-          border-top: 1px solid #2d5a9e;
-          margin: 0;
-        }
-
-        /* Bottom bar */
-        .footer-bottom {
-          max-width: 1100px;
-          margin: 0 auto;
-          padding: 18px 24px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          flex-wrap: wrap;
-          gap: 12px;
-        }
-
-        .footer-copy {
-          font-size: 13px;
-          color: #93b8e8;
-        }
-
-        .footer-legal {
-          display: flex;
-          gap: 20px;
-        }
-
-        .footer-legal a {
-          font-size: 13px;
-          color: #93b8e8;
-          text-decoration: none;
-          transition: color 0.2s;
-        }
-
-        .footer-legal a:hover { color: #fff; }
-
-        /* Responsive */
-        @media (max-width: 860px) {
-          .footer-main {
-            grid-template-columns: 1fr 1fr;
-          }
-        }
-
-        @media (max-width: 520px) {
-          .footer-main {
-            grid-template-columns: 1fr;
-            gap: 28px;
-          }
-          .footer-bottom {
-            flex-direction: column;
-            align-items: flex-start;
-          }
-        }
+        .footer-font { font-family: 'Poppins', sans-serif; }
       `}</style>
 
-      <footer className="footer">
-        <div className="footer-main">
+      <footer className="footer-font bg-[#1a3c6e] text-white">
+
+        {/* Main Grid */}
+        <div className="max-w-[1100px] mx-auto px-6 pt-12 pb-9 grid grid-cols-1 lg:grid-cols-[2fr_1fr_1fr] gap-10">
 
           {/* Brand */}
           <div>
-            <div className="brand-name">
-              {/* Logo icon left of brand name — replace src with your actual logo path */}
-              <img 
-  src="/logo.png" 
-  alt="ShiftEasy Logo" 
-  className="brand-logo-img" 
-/>
-              Easy<span>To Go</span>
+            <div className="flex items-center gap-2.5 text-[22px] font-bold text-white mb-2.5">
+              <img
+                src="/logo.png"
+                alt="ShiftEasy Logo"
+                className="w-[38px] h-[38px] object-contain rounded-md bg-white p-1 shrink-0"
+              />
+              Easy<span className="text-blue-400">To Go</span>
             </div>
-            <p className="brand-desc">
-              Your trusted partner for stress-free house shifting across India. Safe, affordable & on time.
+
+            <p className="text-[13.5px] text-[#93b8e8] leading-[1.7] mb-5">
+              Your trusted partner for stress-free house shifting across India. Safe, affordable &amp; on time.
             </p>
-            <a href="tel:+911800123456" className="contact-item">
-              <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+
+            <a href="tel:+911800123456" className="flex items-center gap-2 text-[13px] text-[#93b8e8] no-underline mb-2 hover:text-white transition-colors">
+              <svg className="text-blue-400 shrink-0" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
               1800-123-4567 (Toll Free)
             </a>
-            <a href="mailto:hello@shifteasy.in" className="contact-item">
-              <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+
+            <a href="mailto:hello@shifteasy.in" className="flex items-center gap-2 text-[13px] text-[#93b8e8] no-underline hover:text-white transition-colors">
+              <svg className="text-blue-400 shrink-0" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" strokeLinecap="round" strokeLinejoin="round"/>
                 <polyline points="22,6 12,13 2,6" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
@@ -201,38 +44,62 @@ const Footer = () => {
             </a>
           </div>
 
-          {/* Services */}
-          <div>
-            <p className="col-heading">Services</p>
-            <ul className="footer-links">
-              {["Home Shifting", "Office Relocation", "Vehicle Transport", "Storage & Warehousing", "Packing & Unpacking"].map(s => (
-                <li key={s}><a href="#">{s}</a></li>
-              ))}
-            </ul>
-          </div>
+          {/* Services + Quick Links: always side by side on mobile via flex, separate grid cols on desktop via lg:contents */}
+          <div className="flex gap-10 lg:contents">
 
-          {/* Quick Links */}
-          <div>
-            <p className="col-heading">Quick Links</p>
-            <ul className="footer-links">
-              {["About Us", "How It Works", "Get a Quote", "Track Your Move", "Reviews", "Contact Us"].map(l => (
-                <li key={l}><a href="#">{l}</a></li>
-              ))}
-            </ul>
+            {/* Services */}
+            <div className="flex-1">
+              <p className="text-[13px] font-semibold tracking-[0.1em] uppercase text-blue-400 mb-4">
+                Services
+              </p>
+              <ul className="list-none p-0 m-0">
+                {["Home Shifting", "Office Relocation", "Vehicle Transport", "Storage & Warehousing", "Packing & Unpacking"].map(s => (
+                  <li key={s} className="mb-2.5">
+                    <a href="#" className="text-[13.5px] text-[#93b8e8] no-underline hover:text-white transition-colors">
+                      {s}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Quick Links */}
+            <div className="flex-1">
+              <p className="text-[13px] font-semibold tracking-[0.1em] uppercase text-blue-400 mb-4">
+                Quick Links
+              </p>
+              <ul className="list-none p-0 m-0">
+                {["About Us", "How It Works", "Get a Quote", "Track Your Move", "Reviews", "Contact Us"].map(l => (
+                  <li key={l} className="mb-2.5">
+                    <a href="#" className="text-[13.5px] text-[#93b8e8] no-underline hover:text-white transition-colors">
+                      {l}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
           </div>
 
         </div>
 
-        <hr className="footer-divider" />
+        {/* Divider */}
+        <hr className="border-none border-t border-[#2d5a9e] m-0" />
 
-        <div className="footer-bottom">
-          <p className="footer-copy">© {new Date().getFullYear()} ShiftEasy. All rights reserved.</p>
-          <nav className="footer-legal">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-            <a href="#">Refund Policy</a>
+        {/* Bottom Bar */}
+        <div className="max-w-[1100px] mx-auto px-6 py-[18px] flex flex-col sm:flex-row justify-between items-start sm:items-center flex-wrap gap-3">
+          <p className="text-[13px] text-[#93b8e8] m-0">
+            © {new Date().getFullYear()} ShiftEasy. All rights reserved.
+          </p>
+          <nav className="flex gap-5">
+            {["Privacy Policy", "Terms of Service", "Refund Policy"].map(link => (
+              <a key={link} href="#" className="text-[13px] text-[#93b8e8] no-underline hover:text-white transition-colors">
+                {link}
+              </a>
+            ))}
           </nav>
         </div>
+
       </footer>
     </>
   );

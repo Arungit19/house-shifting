@@ -1,5 +1,6 @@
 "use client";
-import Navbar from "@/components/Navbar";
+import Navbar from "../../../components/Navbar";
+import Footer from "../../../components/Footer";
 import { useState } from "react";
 
 const CITIES = [
@@ -277,9 +278,9 @@ export default function VehicleTransportPage() {
                 Why Us
               </span>
               <h2 className="font-['Sora',sans-serif] text-[clamp(1.8rem,3.2vw,2.8rem)] font-extrabold text-white mt-3 mb-4 leading-[1.2]">
-                Your vehicle is tracked,
+                Your Vehicle Is Tracked,
                 <br />
-                insured and handled with care.
+                Insured And Handled With Care.
               </h2>
               <p className="text-[#95a2c2] text-[15px] leading-[1.8] max-w-[560px]">
                 From pickup to delivery, our team uses hydraulic ramps, wheel
@@ -309,6 +310,7 @@ export default function VehicleTransportPage() {
         </section>
 
       </div>
+      <Footer/>
     </>
   );
 }
