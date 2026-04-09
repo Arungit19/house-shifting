@@ -1,5 +1,30 @@
 "use client";
+import { useState } from "react";
+
 export default function Contact() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+    const formData = new FormData(form);
+
+    try {
+      await fetch("https://formsubmit.co/yp36yadav@gmail.com", {
+        method: "POST",
+        body: formData,
+      });
+
+      setSubmitted(true);
+      form.reset();
+
+      setTimeout(() => setSubmitted(false), 4000);
+    } catch (error) {
+      console.error("Form submit error:", error);
+    }
+  };
+
   return (
     <section id="contact" className="py-5 px-6 bg-[#0a0e1a]">
       <div className="max-w-4xl mx-auto">
@@ -50,8 +75,7 @@ export default function Contact() {
           </div>
 
           <form
-            action="https://formsubmit.co/yp36yadav@gmail.com"
-            method="POST"
+            onSubmit={handleSubmit}
             className="space-y-4 bg-white/5 border border-white/10 rounded-2xl p-6"
           >
             <input type="hidden" name="_captcha" value="false" />
@@ -115,6 +139,12 @@ export default function Contact() {
             >
               Send Message
             </button>
+
+            {submitted && (
+              <p className="text-green-400 text-sm text-center mt-2">
+                Your form has been submitted successfully.
+              </p>
+            )}
           </form>
         </div>
       </div>
