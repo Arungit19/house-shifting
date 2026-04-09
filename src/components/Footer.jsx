@@ -12,12 +12,12 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { name: "About Us", href: "/about" },
-    { name: "How It Works", href: "/how-it-works" },
-    { name: "Get a Quote", href: "/quote" },
-    { name: "Track Your Move", href: "/track" },
-    { name: "Reviews", href: "/reviews" },
-    { name: "Contact Us", href: "/contact" },
+    { name: "About Us", href: "/" },
+    { name: "How It Works", href: "/" },
+    { name: "Get a Quote", href: "/" },
+    { name: "Track Your Move", href: "/" },
+    { name: "Reviews", href: "/" },
+    { name: "Contact Us", href: "/" },
   ];
 
   return (
@@ -109,13 +109,13 @@ const Footer = () => {
             © {new Date().getFullYear()} ShiftEasy. All rights reserved.
           </p>
           <nav className="flex gap-5">
-            <Link href="/privacy" className="text-[13px] text-[#93b8e8] hover:text-white">
+            <Link href="/" className="text-[13px] text-[#93b8e8] hover:text-white">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-[13px] text-[#93b8e8] hover:text-white">
+            <Link href="/" className="text-[13px] text-[#93b8e8] hover:text-white">
               Terms of Service
             </Link>
-            <Link href="/refund" className="text-[13px] text-[#93b8e8] hover:text-white">
+            <Link href="/" className="text-[13px] text-[#93b8e8] hover:text-white">
               Refund Policy
             </Link>
           </nav>
