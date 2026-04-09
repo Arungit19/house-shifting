@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn } from "react-icons/fa";
 
 const Footer = () => {
   const services = [
@@ -51,9 +52,29 @@ const Footer = () => {
               1800-123-4567 (Toll Free)
             </a>
 
-            <a href="mailto:hello@shifteasy.in" className="flex items-center gap-2 text-[13px] text-[#93b8e8] hover:text-white">
+            <a href="mailto:hello@shifteasy.in" className="flex items-center gap-3 text-[13px] text-[#93b8e8] hover:text-white">
               hello@shifteasy.in
             </a>
+
+            {/* ✅ Social Media Icons */}
+            <div className="flex gap-4 mt-4 text-[#93b8e8]">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
+                <FaFacebookF size={20} />
+              </a>
+
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
+                <FaInstagram size={20} />
+              </a>
+
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
+                <FaTwitter size={20} />
+              </a>
+
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
+                <FaLinkedinIn size={20} />
+              </a>
+            </div>
+
           </div>
 
           {/* Services + Quick Links */}
