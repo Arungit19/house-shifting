@@ -20,9 +20,10 @@ export default function Navbar() {
 }`}>
 
       
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-3 items-center">
+        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between md:grid md:grid-cols-3">
           {/* Logo */}
           <div className="flex items-center gap-3 justify-start">
+  <Link href="/" className="block">
   <div className="w-12 h-12 relative">
     <Image
       src="/logo.png"
@@ -31,6 +32,7 @@ export default function Navbar() {
       className="object-contain"
     />
   </div>
+</Link>
 
   <span className="text-xl font-bold tracking-tight">
     <span className="text-white">Easy</span>

@@ -100,7 +100,7 @@ export default function Contact() {
                 Phone
               </label>
               <input
-                type="tel"
+              type="tel"
                 name="phone"
                 placeholder="+91 98765 43210"
                 className="w-full bg-white/5 border border-white/15 rounded-xl px-4 py-3 text-white text-sm placeholder-gray-600 focus:outline-none focus:border-[#2979d4]/60 transition-colors"

@@ -1,6 +1,25 @@
-"use client"
+"use client";
+
+import Link from "next/link";
 
 const Footer = () => {
+  const services = [
+    { name: "Home Shifting", href: "/services/home-shifting" },
+    { name: "Office Relocation", href: "/services/office-relocation" },
+    { name: "Vehicle Transport", href: "/services/vehicle-transport" },
+    { name: "Storage & Warehousing", href: "/services/storage" },
+    { name: "Packing & Unpacking", href: "/services/packing-unpacking" },
+  ];
+
+  const quickLinks = [
+    { name: "About Us", href: "/about" },
+    { name: "How It Works", href: "/how-it-works" },
+    { name: "Get a Quote", href: "/quote" },
+    { name: "Track Your Move", href: "/track" },
+    { name: "Reviews", href: "/reviews" },
+    { name: "Contact Us", href: "/contact" },
+  ];
+
   return (
     <>
       <style>{`
@@ -28,23 +47,16 @@ const Footer = () => {
               Your trusted partner for stress-free house shifting across India. Safe, affordable &amp; on time.
             </p>
 
-            <a href="tel:+911800123456" className="flex items-center gap-2 text-[13px] text-[#93b8e8] no-underline mb-2 hover:text-white transition-colors">
-              <svg className="text-blue-400 shrink-0" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.01 2.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+            <a href="tel:+911800123456" className="flex items-center gap-2 text-[13px] text-[#93b8e8] mb-2 hover:text-white">
               1800-123-4567 (Toll Free)
             </a>
 
-            <a href="mailto:hello@shifteasy.in" className="flex items-center gap-2 text-[13px] text-[#93b8e8] no-underline hover:text-white transition-colors">
-              <svg className="text-blue-400 shrink-0" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" strokeLinecap="round" strokeLinejoin="round"/>
-                <polyline points="22,6 12,13 2,6" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+            <a href="mailto:hello@shifteasy.in" className="flex items-center gap-2 text-[13px] text-[#93b8e8] hover:text-white">
               hello@shifteasy.in
             </a>
           </div>
 
-          {/* Services + Quick Links: always side by side on mobile via flex, separate grid cols on desktop via lg:contents */}
+          {/* Services + Quick Links */}
           <div className="flex gap-10 lg:contents">
 
             {/* Services */}
@@ -53,11 +65,14 @@ const Footer = () => {
                 Services
               </p>
               <ul className="list-none p-0 m-0">
-                {["Home Shifting", "Office Relocation", "Vehicle Transport", "Storage & Warehousing", "Packing & Unpacking"].map(s => (
-                  <li key={s} className="mb-2.5">
-                    <a href="#" className="text-[13.5px] text-[#93b8e8] no-underline hover:text-white transition-colors">
-                      {s}
-                    </a>
+                {services.map((s) => (
+                  <li key={s.name} className="mb-2.5">
+                    <Link
+                      href={s.href}
+                      className="text-[13.5px] text-[#93b8e8] hover:text-white transition-colors"
+                    >
+                      {s.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -69,34 +84,40 @@ const Footer = () => {
                 Quick Links
               </p>
               <ul className="list-none p-0 m-0">
-                {["About Us", "How It Works", "Get a Quote", "Track Your Move", "Reviews", "Contact Us"].map(l => (
-                  <li key={l} className="mb-2.5">
-                    <a href="#" className="text-[13.5px] text-[#93b8e8] no-underline hover:text-white transition-colors">
-                      {l}
-                    </a>
+                {quickLinks.map((l) => (
+                  <li key={l.name} className="mb-2.5">
+                    <Link
+                      href={l.href}
+                      className="text-[13.5px] text-[#93b8e8] hover:text-white transition-colors"
+                    >
+                      {l.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
             </div>
 
           </div>
-
         </div>
 
         {/* Divider */}
-        <hr className="border-none border-t border-[#2d5a9e] m-0" />
+        <hr className="border-t border-[#2d5a9e]" />
 
         {/* Bottom Bar */}
-        <div className="max-w-[1100px] mx-auto px-6 py-[18px] flex flex-col sm:flex-row justify-between items-start sm:items-center flex-wrap gap-3">
-          <p className="text-[13px] text-[#93b8e8] m-0">
+        <div className="max-w-[1100px] mx-auto px-6 py-[18px] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+          <p className="text-[13px] text-[#93b8e8]">
             © {new Date().getFullYear()} ShiftEasy. All rights reserved.
           </p>
           <nav className="flex gap-5">
-            {["Privacy Policy", "Terms of Service", "Refund Policy"].map(link => (
-              <a key={link} href="#" className="text-[13px] text-[#93b8e8] no-underline hover:text-white transition-colors">
-                {link}
-              </a>
-            ))}
+            <Link href="/privacy" className="text-[13px] text-[#93b8e8] hover:text-white">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="text-[13px] text-[#93b8e8] hover:text-white">
+              Terms of Service
+            </Link>
+            <Link href="/refund" className="text-[13px] text-[#93b8e8] hover:text-white">
+              Refund Policy
+            </Link>
           </nav>
         </div>
 
