@@ -15,23 +15,23 @@ export default function Hero() {
       {/* Hero Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-left sm:text-center">
         {/* Badge */}
-        <div className="hidden sm:inline-flex items-center gap-2 bg-[#2979d4]/15 border border-[#2979d4]/30 text-[#5fa8f0] text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-8">
+        <div className="hidden sm:inline-flex items-center gap-2 bg-[#2979d4]/15 border border-[#2979d4]/30 text-[#2979d4] text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full mb-8">
           <span className="w-2 h-2 rounded-full bg-[#2979d4] animate-pulse" />
           Trusted House Shifting Service
         </div>
 
         <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight mb-6">
-          <span className="text-white">Moving Made</span>
+          <span style={{ color: "var(--foreground)" }}>Moving Made</span>
           <br />
           <span className="text-[#2979d4]">Easy &amp; Stress-Free</span>
         </h1>
 
-        <p className="text-lg md:text-xl text-gray-400 max-w-2xl sm:mx-auto leading-relaxed mb-10">
+        <p className="text-lg md:text-xl max-w-2xl sm:mx-auto leading-relaxed mb-10" style={{ color: "var(--nav-text-muted)" }}>
           Professional house shifting services at your doorstep. We handle your valuables with care — from packing to unpacking.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-start sm:justify-center">
-          
+
           {/* Button 1 */}
           <a
             href="#services"
@@ -43,7 +43,12 @@ export default function Hero() {
           {/* Button 2 */}
           <a
             href="#about-us"
-            className="bg-white/5 hover:bg-white/10 border border-white/15 hover:border-white/30 text-white font-semibold px-8 py-4 rounded-2xl transition-all duration-300 text-base"
+            className="border font-semibold px-8 py-4 rounded-2xl transition-all duration-300 text-base"
+            style={{
+              backgroundColor: "var(--card-bg)",
+              borderColor: "var(--border-color)",
+              color: "var(--nav-text)",
+            }}
           >
             Learn More
           </a>
@@ -59,10 +64,14 @@ export default function Hero() {
           ].map((stat) => (
             <div
               key={stat.label}
-              className="bg-white/5 border border-white/10 rounded-2xl px-4 py-5 backdrop-blur-sm"
+              className="rounded-2xl px-4 py-5 backdrop-blur-sm"
+              style={{
+                backgroundColor: "var(--card-bg)",
+                border: "1px solid var(--border-color)",
+              }}
             >
               <p className="text-2xl md:text-3xl font-black text-[#2979d4]">{stat.num}</p>
-              <p className="text-xs text-gray-400 mt-1 font-medium">{stat.label}</p>
+              <p className="text-xs mt-1 font-medium" style={{ color: "var(--nav-text-muted)" }}>{stat.label}</p>
             </div>
           ))}
         </div>
@@ -70,7 +79,7 @@ export default function Hero() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
-        <span className="text-xs text-gray-400 tracking-widest uppercase">Scroll</span>
+        <span className="text-xs tracking-widest uppercase" style={{ color: "var(--nav-text-muted)" }}>Scroll</span>
         <div className="w-0.5 h-8 bg-gradient-to-b from-[#2979d4] to-transparent rounded-full animate-pulse" />
       </div>
     </section>

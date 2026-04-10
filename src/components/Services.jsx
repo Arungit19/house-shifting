@@ -45,28 +45,29 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="py-5 px-6 bg-[#0a0e1a]">
+    <section id="services" className="py-5 px-6" style={{ backgroundColor: "var(--background)" }}>
       <div className="max-w-6xl mx-auto">
 
-        {/* 🔹 Heading */}
+        {/* Heading */}
         <div className="text-center mb-16">
           <span className="text-[#2979d4] text-xs font-bold tracking-[0.3em] uppercase mb-4 block">
             What We Offer
           </span>
-          <h2 className="text-4xl md:text-5xl font-black text-white">
+          <h2 className="text-4xl md:text-5xl font-black" style={{ color: "var(--foreground)" }}>
             Our Services
           </h2>
         </div>
 
-        {/* 🔹 Cards */}
+        {/* Cards */}
         <div className="grid md:grid-cols-3 gap-6">
           {services.map((s) => (
-            
             <Link href={s.link} key={s.title}>
               <div
-                className={`relative bg-white/5 border rounded-2xl p-6 hover:border-[#2979d4]/50 hover:bg-[#2979d4]/5 transition-all duration-300 group cursor-pointer hover:scale-105 ${
-                  s.tag ? "border-[#2979d4]/40" : "border-white/10"
-                }`}
+                className="relative rounded-2xl p-6 transition-all duration-300 group cursor-pointer hover:scale-105"
+                style={{
+                  backgroundColor: "var(--card-bg)",
+                  border: s.tag ? "1px solid #2979d4" : "1px solid var(--border-color)",
+                }}
               >
                 {/* Tag */}
                 {s.tag && (
@@ -79,12 +80,12 @@ export default function Services() {
                 <span className="text-4xl mb-4 block">{s.icon}</span>
 
                 {/* Title */}
-                <h3 className="text-white font-bold text-lg mb-2 group-hover:text-[#5fa8f0] transition-colors">
+                <h3 className="font-bold text-lg mb-2 group-hover:text-[#2979d4] transition-colors" style={{ color: "var(--foreground)" }}>
                   {s.title}
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="text-sm leading-relaxed" style={{ color: "var(--nav-text-muted)" }}>
                   {s.desc}
                 </p>
 
@@ -94,7 +95,6 @@ export default function Services() {
                 </div>
               </div>
             </Link>
-
           ))}
         </div>
 
