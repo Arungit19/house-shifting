@@ -64,18 +64,7 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-3 justify-end">
 
           {/* Theme Toggle */}
-          {mounted && (
-            <button
-              onClick={toggleTheme}
-              className="text-sm px-3 py-2 rounded-xl border transition-all duration-200"
-              style={{
-                borderColor: "var(--border-color)",
-                color: "var(--nav-text-muted)",
-              }}
-            >
-              {theme === "dark" ? "☀️ Light" : "🌙 Dark"}
-            </button>
-          )}
+          
 
           <Link
             href="/login"
@@ -90,6 +79,21 @@ export default function Navbar() {
           >
             Sign Up
           </Link>
+
+
+          {/* Theme Toggle */}
+          {mounted && (
+            <button
+              onClick={toggleTheme}
+              className="text-sm px-3 py-2 rounded-xl border transition-all duration-200"
+              style={{
+                borderColor: "var(--border-color)",
+                color: "var(--nav-text-muted)",
+              }}
+            >
+              {theme === "dark" ? "☀️ " : "🌙 "}
+            </button>
+          )}
         </div>
 
         {/* Mobile Hamburger */}
