@@ -25,7 +25,7 @@ export default function Navbar() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "backdrop-blur-md py-3" : "backdrop-blur-sm py-5"
+        scrolled ? "backdrop-blur-md py-3" : "backdrop-blur-sm py-3"
       }`}
       style={{ backgroundColor: "var(--nav-bg)" }}
     >
@@ -68,11 +68,8 @@ export default function Navbar() {
 
           <Link
             href="/login"
-            className="text-sm px-3 py-2 rounded-xl border transition-all duration-200"
-    style={{
-      borderColor: theme === "dark" ? "#fff" : "#000",
-      color: theme === "dark" ? "#fff" : "#000",
-    }}
+            className="text-sm font-medium px-4 py-2 border rounded-xl transition-colors"
+            style={{ color: "var(--nav-text-muted)", borderColor: "var(--border-color)" }}
           >
             Login
           </Link>

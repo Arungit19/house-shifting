@@ -38,18 +38,7 @@ export default function AuthPage() {
   return (
     <div className="relative min-h-screen flex items-center justify-center px-4">
 
-      <button
-  onClick={() => router.push("/")}
-  className="absolute top-4 left-4 z-20 flex items-center gap-2 
-             px-4 py-2 rounded-full 
-             bg-black/50 backdrop-blur-md 
-             text-white font-medium 
-             hover:bg-black/70 hover:scale-105 
-             transition-all duration-200 shadow-md"
->
-  <ArrowLeft size={18} />
-  <span>Back</span>
-</button>
+     
 
       {/* BACKGROUND */}
       <div
@@ -72,6 +61,19 @@ export default function AuthPage() {
             height={100}
             className="absolute top-3 right-3"
           />
+
+           <button
+  onClick={() => router.push("/")}
+  className="absolute top-4 left-4 z-20 flex items-center gap-2 
+             px-4 py-2 rounded-full 
+             bg-black/50 backdrop-blur-md 
+             text-white font-medium 
+             hover:bg-black/70 hover:scale-105 
+             transition-all duration-200 shadow-md"
+>
+  <ArrowLeft size={18} />
+  <span>Back</span>
+</button>
 
           {/* BANNER */}
           <div className="h-40 bg-gradient-to-r from-blue-700 to-blue-500 flex items-end p-4 text-white">
