@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 
+
 export default function AuthPage() {
   const router = useRouter();
 
@@ -63,8 +64,8 @@ export default function AuthPage() {
           />
 
            <button
-  onClick={() => router.push("/")}
-  className="absolute top-4 left-4 z-20 flex items-center gap-2 
+           onClick={() => router.push("/")}
+           className="absolute top-4 left-4 z-20 flex items-center gap-2 
              px-4 py-2 rounded-full 
              bg-black/50 backdrop-blur-md 
              text-white font-medium 

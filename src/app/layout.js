@@ -17,6 +17,9 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Easy To Go",
   description: "Professional House Shifting Service",
+  icons: {
+    icon: "/favicon.ico", // ✅ main favicon
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -26,10 +29,19 @@ export default function RootLayout({ children }) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
+      <head>
+        {/* 🔥 FORCE favicon (fixes caching issue) */}
+        <link rel="icon" href="/favicon.ico?v=2" />
+      </head>
+
       <body className="min-h-full flex flex-col">
-        <ThemeProvider attribute="data-theme" defaultTheme="dark" enableSystem={false}>
+        <ThemeProvider
+          attribute="data-theme"
+          defaultTheme="dark"
+          enableSystem={false}
+        >
           <Navbar />
-          {children}
+          <main className="flex-grow">{children}</main>
           <ContactButtons />
         </ThemeProvider>
       </body>
