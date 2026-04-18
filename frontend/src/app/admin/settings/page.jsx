@@ -5,10 +5,10 @@ import { useState } from "react";
 export default function SettingsPage() {
   const [profile, setProfile] = useState({
     name: "Admin",
-    email: "admin@shiftease.in",
+    email: "admin@easytogo.in",
     phone: "9800000000",
-    company: "ShiftEase Movers",
-    city: "Bareilly",
+    company: "Easy To Go",
+    city: "Moradabad",
   });
 
   const [notifs, setNotifs] = useState({
